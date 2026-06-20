@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .challenge-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .challenge-container h2 {
+            margin-bottom: 20px;
+        }
+        .challenge-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .challenge-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="challenge-container">
+        <h2>🧠 Behavioral Challenge</h2>
+        <p>We detected unusual behavior or context. Please confirm you're human to proceed.</p>
+        
+        <form method="POST" action="{{ url_for('auth.challenge') }}">
+            <button type="submit">I'm Human – Proceed</button>
+        </form>
+
+        <br>
+        <p style="font-size: 13px; color: gray;">
+            Risk Score: {{ context.risk_score if context else 'N/A' }}<br>
+            IP: {{ context.ip_address if context else 'N/A' }}<br>
+            Timestamp: {{ context.timestamp if context else 'N/A' }}
+        </p>
+    </div>
+</body>
+</html>

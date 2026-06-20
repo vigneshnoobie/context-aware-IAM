@@ -1,0 +1,92 @@
+<!-- templates/dashboard/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Hybrid IAM System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <p><strong>Logged in as:</strong> {{ session.username }}</p>
+        <p><strong>Role:</strong> Administrator</p>
+        <hr>
+
+        <h2>📋 User Access Logs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>IP Address</th>
+                    <th>Device</th>
+                    <th>Geo</th>
+                    <th>Time</th>
+                    <th>Risk</th>
+                    <th>Trust</th>
+                    <th>Decision</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.user_id }}</td>
+                    <td>{{ log.context.ip }}</td>
+                    <td>{{ log.context.device }}</td>
+                    <td>{{ log.context.geo }}</td>
+                    <td>{{ log.timestamp }}</td>
+                    <td>{{ log.risk_score }}</td>
+                    <td>{{ log.trust_score }}</td>
+                    <td>{{ log.decision }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>🔍 Anomaly Visualizations</h2>
+        <img src="{{ url_for('static', filename='graphs/anomaly_heatmap.png') }}" alt="Anomaly Heatmap" style="width:100%; max-width:800px;">
+
+        <hr>
+
+        <h2>⚙️ Role Management</h2>
+        <form method="POST" action="{{ url_for('dashboard.update_roles') }}">
+            <label for="user">Select User:</label>
+            <select name="user" required>
+                {% for user in all_users %}
+                    <option value="{{ user.id }}">{{ user.email }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="role">Assign Role:</label>
+            <select name="role" required>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="guest">Guest</option>
+            </select>
+
+            <button type="submit">Update Role</button>
+        </form>
+
+        <hr>
+
+        <h2>📦 Federated Learning Status</h2>
+        <p><strong>Models Participating:</strong> {{ federated.participants }}</p>
+        <p><strong>Last Aggregation:</strong> {{ federated.last_aggregation }}</p>
+        <p><strong>Status:</strong> {{ federated.status }}</p>
+
+        <hr>
+
+        <h2>🔐 Access Policy Engine</h2>
+        <p>Access decisions are based on ML risk, trust trajectory, session behavior, and user roles.</p>
+        <ul>
+            <li><strong>Current Trust Threshold:</strong> {{ policy.trust_threshold }}</li>
+            <li><strong>Risk Tolerance:</strong> {{ policy.risk_tolerance }}</li>
+        </ul>
+
+        <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard - IAM System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.email }}</h1>
+
+        <p><strong>Authentication Provider:</strong> IAM System</p>
+        <p><strong>Login Time:</strong> {{ context.timestamp }}</p>
+
+        <hr>
+
+        <h2>Behavioral & Contextual Intelligence</h2>
+        <ul>
+            <li><strong>Typing Speed:</strong> {{ context.typing_speed or 'N/A' }} ms per keystroke</li>
+            <li><strong>Device Info:</strong> {{ context.device_info or 'N/A' }}</li>
+            <li><strong>Browser:</strong> {{ context.browser or 'N/A' }}</li>
+            <li><strong>IP Address:</strong> {{ context.ip or 'N/A' }}</li>
+            <li><strong>Geo-location:</strong> {{ context.geo or 'N/A' }}</li>
+            <li><strong>Network Type:</strong> {{ context.network_type or 'N/A' }}</li>
+        </ul>
+
+        <h2>Risk & Trust Evaluation</h2>
+        <ul>
+            <li><strong>Risk Score (ML):</strong> {{ scores.risk }}</li>
+            <li><strong>Trust Score (ATFE):</strong> {{ scores.trust }}</li>
+            <li><strong>Decision:</strong> {{ decision }}</li>
+        </ul>
+
+        <h2>Role & Access Control</h2>
+        <ul>
+            <li><strong>Assigned Role:</strong> {{ role }}</li>
+            <li><strong>Context-Sensitive Permissions:</strong> Based on your trust & role</li>
+        </ul>
+
+        <h2>🚀 Accessible Applications</h2>
+        <div class="app-grid">
+            {% for app in apps %}
+                <div class="app-card">
+                    <div>{{ app.name }}</div>
+                    <a href="{{ app.url }}">Open App</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h2>Log Forwarding</h2>
+        <ul>
+            <li><strong>SIEM Forwarded:</strong> {{ logs.forwarded }}</li>
+        </ul>
+
+        <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+# ===== Flask Web Framework =====
+Flask==2.3.3
+Flask-Login==0.6.3
+Flask-Cors==4.0.0
+Flask-SQLAlchemy==3.1.1
+python-dotenv==1.0.1
+Werkzeug==3.0.1
+
+# ===== OAuth2 (Planned/Future) =====
+requests==2.31.0
+authlib==1.2.1
+
+# ===== Machine Learning for Risk Scoring =====
+scikit-learn==1.4.2
+joblib==1.4.0
+numpy==1.26.4
+pandas==2.2.2
+
+# ===== Contextual and Behavioral Analysis =====
+user-agents==2.2.0
+geoip2==4.7.0
+ipinfo==3.0.0
+python-dateutil==2.9.0.post0
+
+# ===== JWT Token Management =====
+PyJWT==2.8.0
+
+# ===== IPFS Integration for Decentralized Storage =====
+ipfshttpclient==0.8.0a2
+
+# ===== SIEM & Logging =====
+elasticsearch==8.13.0         # If using ELK stack
+loguru==0.7.2
+
+# ===== Federated Learning (Future Scope) =====
+flwr==1.8.0
+grpcio==1.62.1
+
+# ===== Visualization (Optional for Dashboards) =====
+matplotlib==3.8.4
+plotly==5.22.0
+dash==2.16.1
+
+# ===== Cryptographic & ZKP Support (Future Scope) =====
+pycryptodome==3.20.0
+
+# ===== Utility Libraries =====
+validators==0.22.0

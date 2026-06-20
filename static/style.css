@@ -1,0 +1,257 @@
+/* static/style.css */
+
+/* === Global Reset & Base === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* === Container === */
+.container {
+    max-width: 960px;
+    margin: auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* === Forms === */
+form div,
+form label,
+form input,
+form select,
+form button {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* === Tables (Admin Dashboard Logs) === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+th, td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* === SSO Buttons === */
+.sso-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sso-btn {
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.github-btn {
+    background-color: #24292e;
+}
+
+.slack-btn {
+    background-color: #4A154B;
+}
+
+.github-btn:hover {
+    background-color: #1b1f23;
+}
+
+.slack-btn:hover {
+    background-color: #3a103a;
+}
+
+/* === Alerts & Status Indicators === */
+.alert {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.alert.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.alert.danger {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.alert.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* === Visualization Area === */
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* === Logout Button === */
+.logout-btn {
+    display: inline-block;
+    background-color: #dc3545;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.logout-btn:hover {
+    background-color: #bd2130;
+}
+
+/* === Responsive Design === */
+@media screen and (max-width: 600px) {
+    .sso-buttons {
+        flex-direction: column;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th, td {
+        padding: 0.6rem;
+        text-align: left;
+    }
+
+    th {
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    td {
+        border-top: none;
+    }
+}
+/* === App Link Grid (Dummy Apps Section) === */
+.app-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.app-card {
+    flex: 1 1 200px;
+    min-width: 160px;
+    max-width: 260px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.app-card a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.app-card a:hover {
+    text-decoration: underline;
+}
+
+/* === Status Badge (Optional Use for Future) === */
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.badge.admin { background-color: #007bff; }
+.badge.user { background-color: #28a745; }
+.badge.guest { background-color: #6c757d; }
+
+@media screen and (max-width: 768px) {
+    .app-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}

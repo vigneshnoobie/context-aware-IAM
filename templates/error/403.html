@@ -1,0 +1,16 @@
+<!-- templates/errors/403.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>403 Forbidden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>403 - Forbidden</h1>
+        <p>You do not have permission to access this page.</p>
+        <a href="{{ url_for('dashboard.dashboard_home') }}">Return to Dashboard</a>
+    </div>
+</body>
+</html>

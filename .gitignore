@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment and secrets
+.env
+*.pem
+*.key
+*.crt
+*.bak
+
+# Local databases / generated data
+*.db
+*.sqlite3
+trust_db.json
+signed_payload.json
+exported_vc.json
+training_data.csv
+
+# Logs and temporary files
+logs/
+temp/
+archive/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
